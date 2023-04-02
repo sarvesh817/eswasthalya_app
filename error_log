@@ -1,0 +1,5 @@
+[21-Mar-2023 09:44:36 UTC] PHP Fatal error:  Cannot use [] for reading in /home/icnllvue/dev.eswasthalya.ssquareconsultants.com/application/controllers/EclinicPanel.php on line 371
+[21-Mar-2023 20:50:48 Asia/Kolkata] PHP Fatal error:  Cannot use [] for reading in /home/icnllvue/dev.eswasthalya.ssquareconsultants.com/application/views/eclinic-panel/profile.php on line 122
+[21-Mar-2023 20:51:21 Asia/Kolkata] PHP Fatal error:  Cannot use [] for reading in /home/icnllvue/dev.eswasthalya.ssquareconsultants.com/application/views/eclinic-panel/profile.php on line 122
+[21-Mar-2023 21:40:56 Asia/Kolkata] PHP Fatal error:  Cannot use [] for reading in /home/icnllvue/dev.eswasthalya.ssquareconsultants.com/application/views/eclinic-panel/profile.php on line 122
+[21-Mar-2023 21:41:00 Asia/Kolkata] PHP Fatal error:  Cannot use [] for reading in /home/icnllvue/dev.eswasthalya.ssquareconsultants.com/application/views/eclinic-panel/profile.php on line 122

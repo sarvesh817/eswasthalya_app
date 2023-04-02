@@ -1,0 +1,15 @@
+.dataTables_length,.dataTables_filter{
+	display:none;
+}/*
+tr.Yes td{
+	background:#f2d7d5 !important; 
+}
+tr.No td{
+	background:#d4efdf !important; 
+}*/
+/*tr.even td{
+	background:#f2d7d5   !important; 
+}
+tr.odd td{
+	background:#d4efdf   !important; 
+}*/

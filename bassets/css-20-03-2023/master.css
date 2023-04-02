@@ -1,0 +1,919 @@
+span.sm-logo {
+    display: none;
+}
+img.logo-img {
+    width: 232px;
+    filter: none;
+}
+img.logo-mini-img {
+    width: 32px;
+    filter: none !important;
+}
+.layout-1 .sidebar.sidebar-mini .sidebar-title .sm-txt {
+    background-color: #fff !important;
+}
+img.login-logo {
+    filter: none;
+    width: 75%;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+.social-icons .fa-lg {
+    font-size: 1.85em;
+    line-height: .05em;
+    vertical-align: -0.075em;
+}
+.lift:focus, .lift:hover {
+    box-shadow: 0 6px 1rem rgb(25 24 24 / 10%), 0 0.5rem 1rem -0.75rem rgb(25 24 24 / 10%) !important;
+    transform: translate3d(0, -3px, 0);
+    background: #00aeef;
+    color: #000;
+}
+.profile-userinfo span {
+    font-size: 10px;
+}
+.required_asterisk {
+    color: red;
+}
+h5.tab_title {
+    margin-left: 2rem;
+    margin-bottom: 0px;
+}
+.form-field-title h4 {
+    font-size: 18px;
+    color: #28a745;
+    font-weight: 500;
+}
+.notice-msg p {
+    color: #ffc107;
+    font-size: 14px;
+}
+ul.notice-list li {
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+/* Number of Days */
+.qty-input {
+    color: #000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .qty-input .product-qty,
+  .qty-input .qty-count {
+    background: transparent;
+    color: inherit;
+    font-weight: bold;
+    font-size: inherit;
+    border: none;
+    display: inline-block;
+    min-width: 0;
+    height: 2.5rem;
+    line-height: 1;
+  }
+  .qty-input .product-qty:focus,
+  .qty-input .qty-count:focus {
+    outline: none;
+  }
+  .qty-input .product-qty {
+    width: 50px;
+    min-width: 0;
+    display: inline-block;
+    text-align: center;
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+            appearance: textfield;
+  }
+  .qty-input .product-qty::-webkit-outer-spin-button, .qty-input .product-qty::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+            appearance: none;
+    margin: 0;
+  }
+  .qty-input .qty-count {
+    padding: 0;
+    cursor: pointer;
+    width: 2.5rem;
+    font-size: 1.25em;
+    text-indent: -100px;
+    overflow: hidden;
+    position: relative;
+  }
+  .qty-input .qty-count:before, .qty-input .qty-count:after {
+    content: "";
+    height: 2px;
+    width: 10px;
+    position: absolute;
+    display: block;
+    background: #000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .qty-input .qty-count--minus {
+    border-right: 1px solid #e2e2e2;
+  }
+  .qty-input .qty-count--add {
+    border-left: 1px solid #e2e2e2;
+  }
+  .qty-input .qty-count--add:after {
+    transform: rotate(90deg);
+  }
+  .qty-input .qty-count:disabled {
+    color: #ccc;
+    background: #f2f2f2;
+    cursor: not-allowed;
+    border-color: transparent;
+  }
+  .qty-input .qty-count:disabled:before, .qty-input .qty-count:disabled:after {
+    background: #ccc;
+  }
+  
+  .qty-input {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    min-height: calc(1.5em + 1.8rem + 2px);
+    width: 145px;
+    justify-content: center;
+}
+.combined-day-month-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.number-of-date-input {
+    text-align: center;
+}
+
+.number-of-date-input select {
+    text-align: center;
+}
+  /* End */
+  .btn-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.btn-row a {
+    margin: 0px 5px;
+    font-size: 18px;
+    color: #fff !important;
+}
+div.clone-container .attr-row {
+    margin: 25px 0px;
+}
+.tab-content .card-body.no-top-padding {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.tab-content .card .card-header {
+    padding-bottom: 0px;
+}
+.form-check-input-lg {
+  width: 1.6em;
+  height: 1.6em;
+  margin-right: 10px;
+  margin-top: 0px;
+}
+.tab-content .form-check {
+  display: flex;
+  align-items: center;
+}
+.tab-content .row-title h5 {
+  color: #00aeef;
+}
+/* Doctor Panel */
+
+.table-filter {
+  margin-bottom: 20px;
+}
+span.status-info {
+  padding: 3px 10px !important;
+}
+.page-body .card-header {
+  padding: 1.5em 1.5em 0px;
+}
+a.modal-btn {
+  color: #fff !important;
+}
+span.media-type-file {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00aeef;
+  font-size: 29px;
+  border: 2px solid;
+}
+.media-type-size {
+  width: 100px;
+  height: 50px;
+}
+
+img.patient-media-items {
+  width: 100%;
+}
+.flex-clone-inputs {
+  display: flex;
+  align-items: end;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.label-input {
+  width: 100%;
+}
+.flex-clone-inputs .btn-row {
+  margin-bottom: 12px;
+}
+
+.main-btn-row {
+  margin-top: 10px;
+}
+a.small-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7px;
+}
+.flex-clone-inputs .label-input:nth-child(1) {
+  margin-right: 15px;
+}
+table.feedback_table tr td:nth-child(3) {
+  white-space: break-spaces !important;
+  width: 700px !important;
+}
+table.feedback_table tr th:nth-child(3) {
+  white-space: break-spaces !important;
+  width: 700px !important;
+}
+.btn-right {
+  padding: 1.5em 0px;
+  text-align: right;
+}
+
+/* Medical History Details */
+.health-record-container .form-control:disabled, .form-select:disabled {
+  cursor: pointer;
+  min-height: auto;
+  background: transparent !important;
+  border: 0px !important;
+  padding: 4px 0px;
+}
+.btn-row.main-btn-row {
+  display: none;
+}
+.medical-history-patient-form .btn-row.main-btn-row{
+  display: block;
+}
+.health-record-container .form-check-input:disabled ~ .form-check-label, .form-check-input[disabled] ~ .form-check-label {
+  cursor: default;
+  opacity: 1;
+}
+/* End */
+
+/* .date-filter-calendar {
+  margin-bottom: 15px;
+} */
+ul.list_of_appoinment_slots {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+ul.list_of_appoinment_slots li {
+  display: inline-block;
+}
+
+table.slot-booking-table tr td:nth-child(4) {
+  white-space: break-spaces !important;
+  width: 400px !important;
+}
+table.slot-booking-table tr th:nth-child(4) {
+  white-space: break-spaces !important;
+  width: 400px !important;
+}
+.show-slot-timing {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 6px;
+}
+.slot-timing {
+  display: flex;
+  width: 100%;
+}
+.slot-timing .time-range {
+  width: 100%;
+}
+.slot-timing .time-range:nth-child(1) {
+  margin-right: 15px;
+}
+.title-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title-btn .btn-right {
+  padding: 0px 20px;
+}
+
+/* Week Days Selector */
+
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  border-radius: 6px;
+  background: #dddddd;
+  height: 50px;
+  width: 70px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
+.weekDays-selector {
+  margin-top: 10px;
+}
+
+/* ============================ Time Slot ====================== */
+.iziToast-wrapper.iziToast-wrapper-center {
+  z-index: 99999 !important;
+}
+.iziToast-overlay.fadeIn {
+  z-index: 9999 !important;
+}
+
+.slot-management-container .card-header * {list-style-type: none;}
+
+.slot-management-container .required:after{
+    content:"*";
+    font-weight:bold;
+    color: red;
+    margin-left: 5px;
+}
+
+.slot-management-container .card-header {
+  padding: 15px 25px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-management-container .card-header ul {
+    margin: 0;
+    padding: 0;
+}
+
+.slot-management-container .card-header ul li {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.slot-management-container .weekdays {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.slot-management-container .days {
+    padding: 10px 0;
+}
+
+.slot-management-container .badge1 {
+    position:relative;
+}
+.slot-management-container .badge1[data-badge]:after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -0.5px;
+    right: -0.5px;
+    font-size: .7em;
+    background: red;
+    color: white;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #333;
+}
+
+@media screen and (max-width:720px) {
+
+  .slot-management-container .weekdays td,
+  .slot-management-container .days td {
+        width: 13.1%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+  .slot-management-container .weekdays td,
+  .slot-management-container .days td {
+        width: 12.5%;
+    }
+
+    .slot-management-container .days td .active {
+        padding: 2px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+
+  .slot-management-container .weekdays td,
+  .slot-management-container .days td {
+        width: 12.2%;
+    }
+}
+
+div#popover676741 {
+  display: none;
+}
+.appointment_list_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.appointment_list_heading h3 {
+  font-size: 22px;
+  margin: 0px;
+  color: #00aeef;
+}
+/* End */
+
+.width10 {
+  width: 10%;
+}
+.ta-right {
+  text-align: right;
+}
+
+/* New Patient Registration */
+
+#grad1 {
+  background-color: #9C27B0;
+  background-image: linear-gradient(120deg, #FF4081, #81D4FA);
+}
+
+/*form styles*/
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+#msform fieldset .form-card {
+  width: 94%;
+  margin: 0 3% 20px 3%;
+  position: relative;
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 20px;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+
+
+/*Blue Buttons*/
+#msform .action-button {
+  width: 100px;
+  background: #00aff1;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #00aff1;
+}
+
+/*Previous Buttons*/
+#msform .action-button-previous {
+  width: 100px;
+  background: #616161;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
+}
+
+/*Dropdown List Exp Date*/
+select.list-dt {
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 2px 5px 3px 5px;
+  margin: 2px;
+}
+
+select.list-dt:focus {
+  border-bottom: 2px solid #00aff1;
+}
+
+/*The background card*/
+.card {
+  z-index: 0;
+  /* border: none; */
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+/*FieldSet headings*/
+.fs-title {
+  font-size: 25px;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: lightgrey;
+  padding: 0px;
+}
+
+#progressbar .active {
+  color: #000000;
+}
+
+#progressbar li {
+  list-style-type: none;
+  font-size: 12px;
+  width: 33.33%;
+  float: left;
+  position: relative;
+}
+
+/*Icons in the ProgressBar*/
+#progressbar #account:before {
+  font-family: FontAwesome;
+  content: "\f023";
+}
+
+#progressbar #personal:before {
+  font-family: FontAwesome;
+  content: "\f007";
+}
+
+#progressbar #payment:before {
+  font-family: FontAwesome;
+  content: "\f09d";
+}
+
+#progressbar #confirm:before {
+  font-family: FontAwesome;
+  content: "\f00c";
+}
+
+/*ProgressBar before any progress*/
+#progressbar li:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 18px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
+}
+
+/*ProgressBar connectors*/
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1;
+}
+
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+  background: #00aff1;
+}
+
+/*Imaged Radio Buttons*/
+.radio-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.radio-group.wizard_form_radio .radio {
+  display:inline-block;
+  width: 204;
+  height: 104;
+  box-shadow: 0 2px 2px 2px #6d6d6da3;
+  box-sizing: border-box;
+  cursor:pointer;
+  margin: 8px 2px; 
+  border-radius: 15px;
+}
+
+.radio-group.wizard_form_radio .radio:hover {
+  box-shadow: 0 2px 2px 2px #00b1f1a3;
+}
+
+/* .radio.wizard_form_radio.selected {
+  border-radius: 0;
+  background: #00aff1;
+  box-shadow: 0 2px 2px 2px #00aff1;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+} */
+
+/*Fit image in bootstrap div*/
+.fit-image{
+  width: 100%;
+  object-fit: cover;
+}
+
+.text-left {
+  text-align: left;
+}
+img.payment-mode {
+  width: 100px;
+  padding: 10px;
+}
+.radio-group.wizard_form_radio {
+  text-align: center;
+}
+.radio-group.wizard_form_radio .radio.selected {
+  border: 1px solid #00aff1 !important;
+  box-shadow: 0 2px 2px 2px #00b1f1a3;
+}
+.fit-image {
+  width: 60%;
+  object-fit: cover;
+}
+
+.weekDays-selector.available-slots-selector input[type=checkbox] + label {
+  border-radius: 6px;
+  background: #dddddd;
+  height: auto;
+  width: auto;
+  line-height: initial;
+  text-align: center;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 4px 3px;
+}
+.weekDays-selector.available-slots-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
+/* Modal */
+
+/* Delete Modal */
+
+.modal-confirm {		
+	color: #636363;
+	width: 400px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
+	font-size: 14px;
+}
+.modal-confirm .modal-header {
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -2px;
+}
+.modal-confirm .modal-body {
+	color: #999;
+}
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;		
+	border-radius: 5px;
+	font-size: 13px;
+	padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+	color: #999;
+}		
+.modal-confirm .icon-box {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+	z-index: 9;
+	text-align: center;
+	border: 3px solid #f15e5e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-confirm .icon-box i {
+	color: #f15e5e;
+	font-size: 46px;
+	display: inline-block;
+  margin-top: 5px;
+}
+.modal-confirm .icon-box-confirmed {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 50%;
+	z-index: 9;
+	text-align: center;
+	border: 3px solid #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-confirm .icon-box-confirmed i {
+	color: #28a745;
+	font-size: 46px;
+	display: inline-block;
+  margin-top: 5px;
+}
+.modal-confirm .btn, .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #60c7c1;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	min-width: 120px;
+	border: none;
+	min-height: 40px;
+	border-radius: 3px;
+	margin: 0 5px;
+}
+.modal-confirm .btn-secondary {
+	background: #c1c1c1;
+}
+.modal-confirm .btn-secondary:hover, .modal-confirm .btn-secondary:focus {
+	background: #a8a8a8;
+}
+.modal-confirm .btn-danger {
+	background: #f15e5e;
+}
+.modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+	background: #ee3535;
+}
+.text-left {
+  text-align: left;
+}
+/* End */
+.table-avatar {
+  width: 65px;
+  min-width: 65px;
+  height: 65px;
+}
+/* .patient-dashboard tr td:nth-child(6) {
+  white-space: break-spaces !important;
+  width: 370px !important;
+} */
+h5.section-title {
+  font-size: 1.2em;
+  color: #000;
+  font-weight: 700;
+}
+ul.list-media {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.list-media li {
+  margin: 12px 0px;
+  padding: 0px;
+}
+ul.list-media li h4.document-type {
+  font-weight: 600;
+  font-size: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+ul.list-media li img {
+  width: 100%;
+}
+.referral-tabs-list .nav-link, .referral-tabs .nav-link {
+  border-radius: 22px !important;
+  border-color: var(--primary-color);
+}
+.referral-tabs-list .nav-link.active, .referral-tabs .nav-link:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 22px !important;
+}
+.referral-tabs-list .nav-link.active, .referral-tabs-list .nav-link:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 22px !important;
+}
+
+ul.nav.referral-tabs-list {
+  padding: 8px !important;
+  display: inline-flex;
+  border: 1px solid #ddd !important;
+  border-radius: 50px;
+}
+
+.tabs-title h5 {
+  color: #00aeef;
+  font-weight: 600;
+}
+.tabs-title {
+  margin-bottom: 28px;
+}
+.tabs-title h5 i {
+  margin-right: 5px;
+}
+span.recommend {
+  color: #dc3545;
+  font-size: 12px;
+}
+.pid_input {
+  text-transform: uppercase;
+}
+ul.patient-details {
+  font-size: 14px;
+  margin: 0px;
+}
+.input-with-btn {
+  position: relative;
+}
+button.verify-pid {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+}
+h2.comingsoon {
+  text-align: center;
+  color: #b6b6b6;
+  padding: 50px;
+  font-size: 40px;
+}
