@@ -92,6 +92,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$route['eclinic/appointments'] = 'EclinicPanel/appointments';
     $route['eclinic/book-new-appointment'] = 'EclinicPanel/book_new_appointment';
 	$route['eclinic/fetch-dependent-doctors'] = 'EclinicPanel/fetch_dependent_doctors';
+	$route['eclinic/fetch-dependent-slots'] = 'EclinicPanel/fetch_dependent_slots';    
+	$route['eclinic/fetch-dependent-slots-other'] = 'EclinicPanel/fetch_dependent_slots_other';    
 	$route['eclinic/fetch-dependent-appointment'] = 'EclinicPanel/fetch_dependent_appointment';
 	$route['eclinic/fetch-dependent-patient'] = 'EclinicPanel/fetch_dependent_patient';
 	
@@ -99,6 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	$route['eclinic/referral'] = 'EclinicPanel/referral';
 	$route['eclinic/add-new-referral'] = 'EclinicPanel/add_new_referral';
+    $route['eclinic/add-new-referral/:any'] = 'EclinicPanel/add_new_referral/$1';   
 	
 	$route['eclinic/accounting'] = 'EclinicPanel/accounting';
 	$route['eclinic/medicine'] = 'EclinicPanel/medicine';
@@ -112,6 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 // Patient Module start
+
 
 
 

@@ -82,7 +82,7 @@
                                             <div class="col-md-6">
                                                
                                         <div class="btn-right">
-                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral" class="btn btn-primary">+ Add New</a>
+                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral/1" class="btn btn-primary">+ Add New</a>
                                         </div>
                                     
                                             </div>
@@ -173,7 +173,7 @@
                                             <div class="col-md-6">
                                                
                                         <div class="btn-right">
-                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral" class="btn btn-primary">+ Add New</a>
+                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral/2" class="btn btn-primary">+ Add New</a>
                                         </div>
                                     
                                             </div>
@@ -264,7 +264,7 @@
                                             <div class="col-md-6">
                                                
                                         <div class="btn-right">
-                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral" class="btn btn-primary">+ Add New</a>
+                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral/3" class="btn btn-primary">+ Add New</a>
                                         </div>
                                     
                                             </div>
@@ -355,7 +355,7 @@
                                             <div class="col-md-6">
                                                
                                         <div class="btn-right">
-                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral" class="btn btn-primary">+ Add New</a>
+                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral/4" class="btn btn-primary">+ Add New</a>
                                         </div>
                                     
                                             </div>
@@ -446,7 +446,7 @@
                                             <div class="col-md-6">
                                                
                                         <div class="btn-right">
-                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral" class="btn btn-primary">+ Add New</a>
+                                            <a href="<?php echo base_url(); ?>eclinic/add-new-referral/5" class="btn btn-primary">+ Add New</a>
                                         </div>
                                     
                                             </div>
@@ -524,7 +524,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div>  
                             </div>
                         </div>
                         

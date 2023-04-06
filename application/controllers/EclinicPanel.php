@@ -490,9 +490,15 @@ class EclinicPanel extends MY_Controller {
 
 		if(isset($_POST['submit_book_appoint'])){
 			extract($_POST);
-			$created_at=date('m/d/Y');         
-			$formdata=array('user_id'=>$uid,'speciality'=>$speciality,'doctor_id'=>$doctor_id,'slot_id'=>$slot_id,'patient_id'=>$patient_id,'patient_name'=>$patient_name,'created_at'=>$created_at);     
-			$model_res = $this->Mastermodel->master_insert('tbl_book_appointment',$formdata);      
+			$created_at=date('m/d/Y');      
+			$get_day= $this->db->where('id',$slot_id)->get('slot_management')->row_array();
+			if($get_day['week_days']==date('l')){
+				$app_date=date('d/m/Y');       
+			}else{
+				$app_date=date('Y/m/d', strtotime($get_day['week_days']));      
+			}  
+			$formdata=array('week_days'=>$get_day['week_days'],'appointment_date'=>$app_date,'user_id'=>$uid,'speciality'=>$speciality,'doctor_id'=>$doctor_id,'slot_id'=>$slot_id,'patient_id'=>$patient_id,'patient_name'=>$patient_name,'created_at'=>$created_at);     
+			$model_res = $this->Mastermodel->master_insert('tbl_book_appointment',$formdata);         
 			if($model_res > 0) {             
 				redirect(base_url('eclinic/appointments'));
 			}else {
@@ -542,15 +548,198 @@ class EclinicPanel extends MY_Controller {
         }*/
 
         if(!empty($model_response)){
+			echo "<option value=''> Please Select Doctors</option>";            
            foreach ($model_response as $mr) {
             echo "<option   value='" . $mr['user_id'] . "'>" . $mr['name'] . "</option>";         
            } 
         }else{
             echo "<option value=''> Select Doctors</option>";
         }
-		//echo $this->db->last_query(); die; 
+		//echo $this->db->last_query(); die;    
         
     }
+
+	public function fetch_dependent_slots(){
+		$user_id=$_POST['user_id'];  
+		$slot_list = $this->Mastermodel->master_get('slot_management','user_id="'.$user_id.'"', '*'); 
+		if(!empty($slot_list)){
+			 ?>
+				 
+				<?php 
+				if(isset($slot_list) && $slot_list !=''){ 
+				$i=1; 
+				foreach($slot_list  as $sl) {
+					$today_date=date('d/m/Y');
+					$i++;
+					if($sl['week_days'] == date('l')){                  
+					?>
+					<input type="radio" id="<?=$i?>_slot" class="weekday" name="slot_id"      
+						value="<?=$sl['id']?>"/>        
+					<label for="<?=$i?>_slot"><?php echo $sl['start_time'];?> - <?php echo $sl['end_time'];?></label>      
+					<?php
+					}   
+					}
+					} ?>     
+
+				 
+			 <?php 
+        }else{
+            echo "<center><b>Slots not available</b></option>";      
+        }
+	}
+
+
+	public function fetch_dependent_slots_other()   
+    {
+		$doctor_id  = $this->input->post("doctor_id");      
+		if($_POST['date_range']){
+			$date_range  = $this->input->post("date_range");     
+			$date_exploded=explode("-",$date_range); 
+			$start_date=trim($date_exploded[0]);  
+			$end_date=trim($date_exploded[1]);           
+			$timestamp=date("Y-m-d", strtotime($start_date));        
+			@$find_start_week_day=date('l', strtotime($timestamp));    
+			$timestamp2=date("Y-m-d", strtotime($end_date));     
+		    @$find_end_week_day=date('l', strtotime($timestamp2));  
+			
+			if(@$find_start_week_day<$find_end_week_day){
+				$slot_list = $this->Mastermodel->master_get('slot_management','user_id='.$doctor_id.' and week_days between "'.$find_start_week_day.'" AND "'.$find_end_week_day.'"', '*');  
+			}else{
+				$slot_list = $this->Mastermodel->master_get('slot_management','user_id='.$doctor_id.' and week_days between "'.$find_end_week_day.'" AND "'.$find_start_week_day.'"', '*');  
+			}
+		//echo $this->db->last_query(); die;                 
+		}
+		if($slot_list){
+
+			if(isset($slot_list) && $slot_list !=''){  
+				$Monday=array();
+				$Tuesday=array();
+				 $Wednesday=array();
+				  $Thrusday=array();
+				   $Friday=array();
+					$Saturday=array();
+					 $Sunday=array();
+					 $j=1;
+		  foreach($slot_list  as $sl) {
+			$today_date=date("d/m/Y");
+			  $j++;
+			 
+			  
+				   if ($sl['week_days']=="Monday") {
+$Monday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+				   } else if($sl['week_days']=="Tuesday"){
+	  
+$Tuesday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+
+				   }else if($sl['week_days']=="Wednesday"){
+				   
+$Wednesday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+				   }else if($sl['week_days']=="Thrusday"){
+$Thrusday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+				   }else if($sl['week_days']=="Friday"){
+$Friday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+				   } else if($sl['week_days']=="Saturday"){
+$Saturday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+				   }else if($sl['week_days']=="Sunday"){
+$Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['id']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+				   }
+			   
+			}
+		  }
+			 
+
+
+?>
+
+
+		  <div class="row"> 
+		  <?php if(!empty($Monday)){ ?>  
+		 <label><b>Monday</b></label>  
+		  <?php 
+		  
+		  foreach($Monday as $md){
+				 
+				 echo $md;
+			  
+		  } } ?>
+		  
+		  <?php if(!empty($Tuesday)){ ?>
+		 <label><b>Tuesday</b></label>  
+		  <?php 
+		  
+		  foreach($Tuesday as $ts){
+				 
+				 echo $ts;
+			  
+		  } } ?>
+		  
+		  
+		  <?php if(!empty($Wednesday)){ ?>
+		 <label><b>Wednesday</b></label>  
+		  <?php 
+		  
+		  foreach($Wednesday as $wednes){
+				 
+				 echo $wednes;
+			  
+		  } } ?>
+		  
+		  
+		  <?php if(!empty($Thrusday)){ ?>
+		 <label><b>Thursday</b></label>  
+		  <?php 
+		  
+		  foreach($Thrusday as $thrus){
+				 
+				 echo $thrus;
+			  
+		  } } ?>
+		  
+		  
+		  <?php if(!empty($Friday)){ ?>
+		 <label><b>Friday</b></label>  
+		  <?php 
+		  
+		  foreach($Friday as $frid){
+				 
+				 echo $frid;
+			  
+		  } } ?>
+		  
+		  
+		  <?php if(!empty($Saturday)){ ?>
+		 <label><b>Saturday</b></label>  
+		  <?php 
+		  
+		  foreach($Saturday as $satur){
+				 
+				 echo $satur;
+			  
+		  } } ?>
+		  
+		  <?php if(!empty($Sunday)){ ?>
+		 <label><b>Sunday</b></label>  
+		  <?php 
+		  
+		  foreach($Sunday as $sunday){
+				 
+				 echo $sunday;
+			  
+		  } } ?>
+	   </div>  
+			          
+		 
+		  <?php                   
+		  	 
+			}else{ ?>
+				<tr>    
+			<td>No Data </td>   
+			</tr>   
+				<?php
+			}   
+    }
+
+	
 
 	public function fetch_dependent_appointment()   
     {
@@ -673,6 +862,8 @@ class EclinicPanel extends MY_Controller {
 	}
 	
 	public function add_new_referral() {
+	   
+		   
 		$uid = $this->session->userdata('user_id');
 		$data['eclinic_info_edit'] = $this->Mastermodel->master_get('tbl_eclinic','user_id="'.$uid.'"', '*');
 		
@@ -687,6 +878,7 @@ class EclinicPanel extends MY_Controller {
 	}
 	
 	public function savenewreferralData(){
+		  
         $userid = $this->session->userdata('user_id');
 
         if (@$_FILES['document']['size'] != 0) {
@@ -717,6 +909,7 @@ class EclinicPanel extends MY_Controller {
         $SaveData['refferal_type_id'] = $this->input->post('refferal_type_id');
         $SaveData['hospital'] = $this->input->post('hospital');
         $SaveData['created_at'] = date("Y-m-d h:i:s");
+        $SaveData['type'] =$_POST['type'];
         
         
         //echo "<pre>"; print_r($SaveData); exit;

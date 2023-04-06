@@ -53,11 +53,12 @@
                 <form action="<?php echo base_url(); ?>" name="add_referral" id="referral_validate" enctype="multipart/form-data" method="post">
                     
                     <input type="hidden" class="form-control form-control-lg" placeholder="refferal_type_id" name="refferal_type_id" value="1">
+                    <input type="hidden" class="form-control form-control-lg" placeholder="refferal_type_id" name="type" value="<?=$this->uri->segment(3)?>">
                     
                   <div class="row">
                     <div class="col-sm-4 mb-4 text-left">
                       <label class="form-label">Enter PID<span class="required_asterisk">*</span></label>
-                      <input type="search" class="form-control form-control-lg required-entry" placeholder="PID" name="pid">
+                      <input type="search" class="form-control form-control-lg required-entry" placeholder="PID" name="pid" id="pid">   
                       <div id="pid_err"></div>
                     </div>
                     <div class="col-sm-4 mb-4 text-left">
@@ -96,12 +97,12 @@
                     </div>
                     <div class="col-sm-4 mb-4 text-left">
                       <label class="form-label">Upload Document<span class="required_asterisk">*</span></label>
-                      <input type="file" class="form-control required-entry" name="document" id="document">
-                        <span class="recommend">Upload Document (in pdf)</span>
+                      <input type="file" class="form-control"  required name="document" id="document">   
+                        <span class="recommend"><b id="pdf_error" style="font-size:14px;color: red;display:none">Upload Document (in pdf)</b></span>
                     </div>
-                    
-                    <div class="col-lg-12">
-                      <div class="btn-left">
+                            
+                    <div class="col-lg-12">   
+                      <div class="btn-left">             
                         <a href="<?php echo base_url(); ?>eclinic/referral" class="btn btn-dark">Back</a>
                         <button type="button" id="saveReferal" name="saveReferal" class="btn btn-primary">Submit</button>
                         <!-- <a href="" class="btn btn-primary">Submit</a>
@@ -149,41 +150,59 @@
     });
     
 </script>
-    
-    
+
+
 <script>
-    $(document).on('click','#saveReferal',function(){
-            var pid = $('#pid').val();
-    		var purpose = $('#purpose').val();
-    		var budget = $('#budget').val();
-    		var hospital = $('#hospital').val();
+  $(document).on('click','#saveReferal',function(){
+    var pid = $('#pid').val();
+    var purpose = $('#purpose').val();
+    var budget = $('#budget').val();
+    var hospital = $('#hospital').val();
+    var document = $('#document').val();
     
     		if(pid == ''){
-    			$('#pid_err').html("<font style='color:red'><b>Required Field</b></font>");
-    			valid = "false";
-    		}
-    
+          $('#pid_err').html("<font style='color:red'><b>Required Field</b></font>");
+    			valid = "false";     
+    		}else{
+          valid="true";
+        }
+        
     		if(purpose == ''){
-    			$('#purpose_err').html("<font style='color:red'><b>Required Field</b></font>");
+          $('#purpose_err').html("<font style='color:red'><b>Required Field</b></font>");
     			valid = "false";
-    		}
+    		}else{
+          valid="true";
+        }
     		
     		if(budget == ''){
-    			$('#budget_err').html("<font style='color:red'><b>Required Field</b></font>");
+          $('#budget_err').html("<font style='color:red'><b>Required Field</b></font>");
     			valid = "false";
-    		}
+    		}else{
+          valid="true";
+        }
     		
     		if(hospital == ''){
-    			$('#hospital_err').html("<font style='color:red; font-size:10px;'><b>Required Field</b></font>");
+          $('#hospital_err').html("<font style='color:red;'><b>Required Field</b></font>");
     			valid = "false";
-    		}
-    
-    		valid = "true";
+    		}else{
+          valid="true";
+        }
+        
+        
+        if(document == ''){
+          $("#pdf_error").show();      
+    			$('#pdf_error').html("<font style='color:red;'><b>Required Field</b></font>");
+    			valid = "false";
+    		}else{
+          $("#pdf_error").hide();     
+          valid="true";
+        }
+       
     		
-        if(valid == "true"){
+        if(valid == "true"){   
 			$("#referral_validate").ajaxSubmit({
-				url: URL,
-				type: 'post',
+				url: URL,    
+				type: 'post',  
 				cache: false,
 				clearForm: false,
 				dataType:'json',

@@ -50,7 +50,7 @@
               <form    action="<?=$action_url?>"  method="post" >    
                 <div class="card-body">
                   <div class="row">
-                      <div class="col-sm-7 mb-4">
+                      <div class="col-sm-7 mb-4 scheduling">
                           <label for="date-week">Select Week Days<span
                               class="required_asterisk">*</span></label>
                               <div class="weekDays-selector">

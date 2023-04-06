@@ -70,7 +70,7 @@
                 <div class="col-xxl-4 col-sm-12 mt-2 mt-md-0">
                   <!-- daterange picker -->
                   <div class="input-group">
-                    <input class="form-control" type="text" name="daterange">
+                    <input class="form-control" type="text" name="daterange" id="daterange">   
                     <button class="btn btn-secondary" type="button" data-bs-toggle="tooltip"
                       title="Download Reports"><i class="fa fa-download"></i></button>
                     <button class="btn btn-secondary" type="button" data-bs-toggle="tooltip" title="Generate PDF"><i
@@ -102,12 +102,12 @@
                     </div>
                     <div class="col-sm-12 mb-3">
                       <label for="date-week">Today<span class="required_asterisk">*</span></label>
-                      <div class="weekDays-selector available-slots-selector">
+                      <div id="bind_slots" class="weekDays-selector available-slots-selector">    
                         <?php 
                         //echo '<pre>';
                     //    print_r($slot_list); die;  
                         
-                      if(isset($slot_list) && $slot_list !=''){ 
+                     /*  if(isset($slot_list) && $slot_list !=''){ 
                         $i=1; 
                         foreach($slot_list  as $sl) {
                            $today_date=date('d/m/Y');
@@ -120,9 +120,9 @@
                           <?php
                           }   
                           }
-                          } ?>   
+                          }  */?>   
                 
-                      </div>  
+                      </div>   
                     </div>
                    
                            
@@ -167,83 +167,9 @@ $Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id
                         <div class="col-sm-12 mb-3">
                          <hr>
                             <!--<label for="date-week">Other Day <span class="required_asterisk">*</span></label>-->
-                            <div class="weekDays-selector available-slots-selector">
+                            <div class="weekDays-selector available-slots-selector" id="bind_other_slot">
                           
-                              <div class="row"> 
-                                 <?php if(!empty($Monday)){ ?>
-                                <label>Monday</label>  
-                                 <?php 
-                                 
-                                 foreach($Monday as $md){
-                                        
-                                        echo $md;
-                                     
-                                 } } ?>
-                                 
-                                 <?php if(!empty($Tuesday)){ ?>
-                                <label>Tuesday</label>  
-                                 <?php 
-                                 
-                                 foreach($Tuesday as $ts){
-                                        
-                                        echo $ts;
-                                     
-                                 } } ?>
-                                 
-                                 
-                                 <?php if(!empty($Wednesday)){ ?>
-                                <label>Wednesday</label>  
-                                 <?php 
-                                 
-                                 foreach($Wednesday as $wednes){
-                                        
-                                        echo $wednes;
-                                     
-                                 } } ?>
-                                 
-                                 
-                                 <?php if(!empty($Thrusday)){ ?>
-                                <label>Thursday</label>  
-                                 <?php 
-                                 
-                                 foreach($Thrusday as $thrus){
-                                        
-                                        echo $thrus;
-                                     
-                                 } } ?>
-                                 
-                                 
-                                 <?php if(!empty($Friday)){ ?>
-                                <label>Friday</label>  
-                                 <?php 
-                                 
-                                 foreach($Friday as $frid){
-                                        
-                                        echo $frid;
-                                     
-                                 } } ?>
-                                 
-                                 
-                                 <?php if(!empty($Saturday)){ ?>
-                                <label>Saturday</label>  
-                                 <?php 
-                                 
-                                 foreach($Saturday as $satur){
-                                        
-                                        echo $satur;
-                                     
-                                 } } ?>
-                                 
-                                 <?php if(!empty($Sunday)){ ?>
-                                <label>Sunday</label>  
-                                 <?php 
-                                 
-                                 foreach($Sunday as $sunday){
-                                        
-                                        echo $sunday;
-                                     
-                                 } } ?>
-                              </div>    
+                                  
                          
 
                             </div>
@@ -422,6 +348,44 @@ $(document).ready(function(){
     });
   
 });
+
+
+$(document).ready(function(){
+    $('#doctor_id').on('change', function(){        
+      var user_id = $(this).val();     
+        if(user_id){          
+              $.ajax({
+              url:"<?php echo base_url(); ?>eclinic/fetch-dependent-slots",       
+              method:"POST",
+              data:{user_id:user_id},                       
+              success:function(data)
+              {
+              $('#bind_slots').html(data);
+              }
+              });
+        }         
+    });
+  
+}); 
+
+ 
+$(document).ready(function(){
+  $('#daterange').on('change', function(){      
+    var date_range=$(this).val();  
+    //alert(date_range);                
+        var doctor_id = $("#doctor_id").val();           
+        $.ajax({
+                url:"<?php echo base_url(); ?>eclinic/fetch-dependent-slots-other",       
+                method:"POST",
+                data:{doctor_id:doctor_id,date_range:date_range},       
+                success:function(data)
+                {
+                $('#bind_other_slot').html(data);
+                }
+                });       
+    });
+}); 
+
 
 $(document).ready(function(){
     $('#verifypid').on('click', function(){
