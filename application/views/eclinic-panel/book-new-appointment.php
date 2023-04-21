@@ -24,34 +24,34 @@
     <div class="row g-2 row-deck">
       <div class="col-xl-12 col-lg-12 col-md-12">
         <div class="card">
-        <form action="<?php echo base_url('eclinic/book-new-appointment') ?>" method="post" >     
-          <div class="card-body">
-            <div class="table-filter">
+          <form action="<?php echo base_url('eclinic/book-new-appointment') ?>" method="post" id="formID"  >     
+            <div class="card-body">
+              <div class="table-filter">
                 
                 
-                    <div class="col-xxl-12 col-md-12 col-sm-12 mt-2 mt-md-0 mb-3">
-                        <div class="row">
-                          <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0"><span id="patient_id22"></span></div>
-                          <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0"><span id="patient_names22"></span></div>
-                          <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0"><span id="patient_mobiles22"></span></div>
-                        </div>
-                    </div>
+                <div class="col-xxl-12 col-md-12 col-sm-12 mt-2 mt-md-0 mb-3">
+                  <div class="row">
+                    <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0"><span id="patient_id22"></span></div>
+                    <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0"><span id="patient_names22"></span></div>
+                    <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0"><span id="patient_mobiles22"></span></div>
+                  </div>
+                </div>
                 
-          
-          
-              <div class="row">
+                
+                
+                <div class="row">
                 <div class="col-xxl-4 col-md-4 col-sm-12 mt-2 mt-md-0 mb-3">
                   <div class="card-header">
-
+                    
                     <h6 class="card-title m-0">Book New Appointment</h6>
-                 
+                    
                   </div>
                 </div>
                 <div class="col-xxl-8 col-md-4 col-sm-12 mt-2 mt-md-0"></div>
                 <input type="hidden" id="patient_id" name="patient_id">  
                 <input type="hidden" id="patient_name" name="patient_name">       
                 <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0">
-                  <select class="form-control form-control-lg" name="speciality"  id="speciality" tabindex="-98">
+                  <select class="form-control form-control-lg" name="speciality" required  id="speciality" tabindex="-98">
                     <option value="">- Select Speciality -</option>
                     <?php 
                       if(isset($specialization_list) && $specialization_list !=''){  
@@ -62,7 +62,7 @@
                   </select>
                 </div>
                 <div class="col-xxl-3 col-sm-12 mt-2 mt-md-0">
-                  <select class="form-control form-control-lg" name="doctor_id"  id="doctor_id" tabindex="-98">
+                  <select class="form-control form-control-lg" name="doctor_id"  required id="doctor_id" tabindex="-98">
                     <option value="">- Select Doctors -</option>       
                   </select>
                 </div>   
@@ -72,9 +72,9 @@
                   <div class="input-group">
                     <input class="form-control" type="text" name="daterange" id="daterange">   
                     <button class="btn btn-secondary" type="button" data-bs-toggle="tooltip"
-                      title="Download Reports"><i class="fa fa-download"></i></button>
+                    title="Download Reports"><i class="fa fa-download"></i></button>
                     <button class="btn btn-secondary" type="button" data-bs-toggle="tooltip" title="Generate PDF"><i
-                        class="fa fa-file-pdf-o"></i></button>
+                    class="fa fa-file-pdf-o"></i></button>
                   </div>
                   <!-- Plugin Js -->
                   <script src="assets/js/bundle/daterangepicker.bundle.js"></script>
@@ -88,11 +88,11 @@
                         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
                       });
                     })
-                  </script>
+                    </script>
                 </div>
 
                 <!-- Select Available Slots -->
-
+                
                 <div class="col-xxl-12 col-sm-12 mt-5 mb-3">
                   <div class="available-slots">
                     <div class="col-sm-12">
@@ -105,22 +105,22 @@
                       <div id="bind_slots" class="weekDays-selector available-slots-selector">    
                         <?php 
                         //echo '<pre>';
-                    //    print_r($slot_list); die;  
+                        //    print_r($slot_list); die;  
                         
-                     /*  if(isset($slot_list) && $slot_list !=''){ 
-                        $i=1; 
-                        foreach($slot_list  as $sl) {
-                           $today_date=date('d/m/Y');
-                           $i++;
-                          if($sl['week_days'] == date('l')){                  
-                          ?>
-                            <input type="radio" id="<?=$i?>_slot" class="weekday" name="slot_id"      
+                        /*  if(isset($slot_list) && $slot_list !=''){ 
+                          $i=1; 
+                          foreach($slot_list  as $sl) {
+                            $today_date=date('d/m/Y');
+                            $i++;
+                            if($sl['week_days'] == date('l')){                  
+                              ?>
+                              <input type="radio" id="<?=$i?>_slot" class="weekday" name="slot_id"      
                               value="<?=$sl['id']?>"/>        
-                            <label for="<?=$i?>_slot"><?php echo date('h:i A', strtotime($sl['start_time']));?> - <?php echo date('h:i A', strtotime($sl['end_time']));?></label>
-                          <?php
-                          }   
+                              <label for="<?=$i?>_slot"><?php echo date('h:i A', strtotime($sl['start_time']));?> - <?php echo date('h:i A', strtotime($sl['end_time']));?></label>
+                              <?php
+                            }   
                           }
-                          }  */?>   
+                        }  */?>   
                 
                       </div>   
                     </div>
@@ -128,64 +128,65 @@
                            
                       <?php 
                       if(isset($slot_list) && $slot_list !=''){  
-                              $Monday=array();
-                              $Tuesday=array();
+                        $Monday=array();
+                        $Tuesday=array();
                                $Wednesday=array();
-                                $Thrusday=array();
-                                 $Friday=array();
-                                  $Saturday=array();
-                                   $Sunday=array();
-                                   $j=1;
-                        foreach($slot_list  as $sl) {
-                          $today_date=date("d/m/Y");
-                            $j++;
-                          if($sl['week_days'] != date('l')){
-                            
-                                 if ($sl['week_days']=="Monday") {
-$Monday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
-                                 } else if($sl['week_days']=="Tuesday"){
-                    
-$Tuesday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                               $Thrusday=array();
+                               $Friday=array();
+                               $Saturday=array();
+                               $Sunday=array();
+                               $j=1;
+                               foreach($slot_list  as $sl) {
+                                 $today_date=date("d/m/Y");
+                                 $j++;
+                                 if($sl['week_days'] != date('l')){
+                                   
+                                   if ($sl['week_days']=="Monday") {
+                                     $Monday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                                    } else if($sl['week_days']=="Tuesday"){
+                                      
+                                      $Tuesday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
               
-                                 }else if($sl['week_days']=="Wednesday"){
-                                 
-$Wednesday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
-                                 }else if($sl['week_days']=="Thrusday"){
-$Thrusday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
-                                 }else if($sl['week_days']=="Friday"){
-$Friday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                                    }else if($sl['week_days']=="Wednesday"){
+                                      
+                                      $Wednesday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                                    }else if($sl['week_days']=="Thrusday"){
+                                      $Thrusday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                                    }else if($sl['week_days']=="Friday"){
+                                      $Friday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
                                  } else if($sl['week_days']=="Saturday"){
-$Saturday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
-                                 }else if($sl['week_days']=="Sunday"){
-$Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
-                                 }
+                                   $Saturday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                                  }else if($sl['week_days']=="Sunday"){
+                                    $Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id' value='".$sl['start_time'].'-'.$sl['end_time']."'><label for='<?=$j?>_slot'>".$sl['start_time']."-".$sl['end_time']."</label>";
+                                  }
                             }
                           }
                         }
-                    ?> 
+                        ?> 
   
-                        <div class="col-sm-12 mb-3">
+  <div class="col-sm-12 mb-3">
                          <hr>
-                            <!--<label for="date-week">Other Day <span class="required_asterisk">*</span></label>-->
-                            <div class="weekDays-selector available-slots-selector" id="bind_other_slot">
-                          
-                                  
-                         
-
+                         <!--<label for="date-week">Other Day <span class="required_asterisk">*</span></label>-->
+                         <div class="weekDays-selector available-slots-selector" id="bind_other_slot">
+                           
+                           
+                           
+                           
+                           </div>
+                          </div>
+                          <div class="col-md-12">
+                            <b style="color:red" id="slot_error"> </b>      
+                            <div class="btn-right">
+                              <a href="<?php echo base_url(); ?>eclinic/appointments" class="btn btn-dark">Back</a>
+                              <input type="submit" name="submit_book_appoint"   class="btn btn-primary w-auto" value="Book Appointment"  >
+                              <!--  <a href="javascript:void(0)" class="btn btn-primary" data-bs-toggle="modal"
+                              data-bs-target="#confirmstaticBackdrop">Book Appointment</a> -->
+                              
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                      <div class="btn-right">
-                        <a href="<?php echo base_url(); ?>eclinic/appointments" class="btn btn-dark">Back</a>
-                        <input type="submit" name="submit_book_appoint" class="btn btn-primary w-auto" value="Book Appointment"  >
-                       <!--  <a href="javascript:void(0)" class="btn btn-primary" data-bs-toggle="modal"
-                          data-bs-target="#confirmstaticBackdrop">Book Appointment</a> -->
-                          
-                      </div>
-                    </div>
+                          </div>
                        
-                    
-                  </div>
+                          
+                        </div>
                 </div>
                 <!-- End -->
               </div>
@@ -201,37 +202,37 @@ $Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id
 
 
 <div class="modal fade" id="confirmstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirm?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-3">
-          <div class="form-field-title">
-            <h4>Are you sure want to book Appointment with this slot?</h4>
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal"
-          data-bs-target="#secretpinstaticBackdrop">Yes</a>
-      </div>
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Confirm?</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form class="row g-3">
+        <div class="form-field-title">
+          <h4>Are you sure want to book Appointment with this slot?</h4>
+        </div>
+        
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+      <a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal"
+      data-bs-target="#secretpinstaticBackdrop">Yes</a>
     </div>
   </div>
+</div>
 </div>
 
 
 <div class="modal fade" id="secretpinstaticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
       <div class="modal-header">
-   
+        
         <h5 class="modal-title">Enter Appoinment Password</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -239,7 +240,7 @@ $Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id
         <form class="row justify-content-center g-3">
           <div class="col-md-7">
             <input id="password" class="form-control form-control-lg" type="password" maxlength="10"
-              placeholder="Enter the Appoinment Password">
+            placeholder="Enter the Appoinment Password">
           </div>
         </form>
       </div>
@@ -252,17 +253,18 @@ $Sunday[] .="<input type='radio' id='<?=$j?>_slot' class='weekday' name='slot_id
 
 <!-- Verify Mobile Number through OTP -->
 
+
 <div class="modal fade" id="verifypatientbeforeappointment" data-bs-backdrop="static" data-bs-keyboard="false"
-  tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-             
-        <h5 class="modal-title">Enter PID and Verify Mobile Number</h5>
-      </div>
-      <div class="modal-body">
-        <div class="row justify-content-center g-3">
-          <div class="col-sm-12 mb-2 text-left">
+tabindex="-1" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      
+      <h5 class="modal-title">Enter PID and Verify Mobile Number</h5>
+    </div>
+    <div class="modal-body">
+      <div class="row justify-content-center g-3">
+        <div class="col-sm-12 mb-2 text-left">
             <label class="form-label">PID<span class="required_asterisk">*</span></label>
             <div class="input-with-btn">
               <input type="text" id="pid" class="form-control form-control-lg required-entry pid_input" placeholder="PID"
@@ -349,6 +351,15 @@ $(document).ready(function(){
   
 });
 
+$("#formID").submit(function(){    
+  var slot_id = $("input[name='slot_id']:checked").val();
+    if (slot_id === undefined) {   
+      $("#slot_error").html("Please Choose Slot First");     
+      return false;             
+    }else{
+      return true;               
+    }            
+});
 
 $(document).ready(function(){
     $('#doctor_id').on('change', function(){        
@@ -373,16 +384,20 @@ $(document).ready(function(){
   $('#daterange').on('change', function(){      
     var date_range=$(this).val();  
     //alert(date_range);                
-        var doctor_id = $("#doctor_id").val();           
-        $.ajax({
-                url:"<?php echo base_url(); ?>eclinic/fetch-dependent-slots-other",       
-                method:"POST",
-                data:{doctor_id:doctor_id,date_range:date_range},       
-                success:function(data)
-                {
-                $('#bind_other_slot').html(data);
-                }
-                });       
+        var doctor_id = $("#doctor_id").val();   
+        if(doctor_id){        
+          $.ajax({
+                  url:"<?php echo base_url(); ?>eclinic/fetch-dependent-slots-other",       
+                  method:"POST",
+                  data:{doctor_id:doctor_id,date_range:date_range},       
+                  success:function(data)
+                  {
+                  $('#bind_other_slot').html(data);
+                  }
+                  });      
+              }else{
+                alert('Please First Select Doctors');    
+              }         
     });
 }); 
 

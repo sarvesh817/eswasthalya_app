@@ -196,19 +196,18 @@ class DoctorsPanel extends MY_Controller {
 					$last_start_time=$start_time;
 					$last_end_time=$end_time;  
 					
-               for($i=1;$i<=$round_loop;$i++){
+               for($i=1;$i<$round_loop;$i++){
                         if($i==$round_loop){
                             $adding15_min=$end_time;    
                         }else{
                             $addingFiveMinutes= strtotime($start_time.' + 15 minute');
-                            $adding15_min=date('h:i', $addingFiveMinutes);   
+                            $adding15_min=date('h:i A', $addingFiveMinutes);   
                         }
  
                         $post_data = array('user_id'=>$uid,'availability'=>'Available','week_days'=>@$wd,      
                         'start_time' => date('h:i A', strtotime($start_time)), 'end_time' => date('h:i A', strtotime($adding15_min)) );   
 
                         $this->db->insert('slot_management', $post_data);    
-						//echo $this->db->last_query(); die;        
                         $addingFiveMinutes2= strtotime($start_time.' + 15 minute');
                         $start_time=date('H:i', $addingFiveMinutes2);       
                     }  
@@ -216,11 +215,9 @@ class DoctorsPanel extends MY_Controller {
 						$start_time=$last_start_time;   
 						$end_time=$last_end_time;    
 					}       
-                 // dd($post_data);       
-                //alert("Saved Successfully","/doctors-panel/schedule-working");                
-               /// redirect(base_url('doctors-panel/schedule-working-hours'));
             }
-		}  
+		}
+		 
 	}
             $data['working_list'] = $this->Mastermodel->master_get('schedule_working','	user_id="'.$uid.'"', '*');
             //$data['working_list']= $this->home_model->select($userid,"schedule_working");      

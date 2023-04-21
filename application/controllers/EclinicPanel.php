@@ -6,7 +6,7 @@ class EclinicPanel extends MY_Controller {
 	   parent::__construct();
 	   date_default_timezone_set('Asia/Kolkata');
 	   $this->load->model('Homemodel','',TRUE);
-	   $this->load->model('Mastermodel','',TRUE);	   
+	   $this->load->model('Mastermodel','',TRUE);    
 	}
 	 
 	public function index() {
@@ -489,21 +489,21 @@ class EclinicPanel extends MY_Controller {
 		$uid = $this->session->userdata('user_id');
 
 		if(isset($_POST['submit_book_appoint'])){
-			extract($_POST);
-			$created_at=date('m/d/Y');      
-			$get_day= $this->db->where('id',$slot_id)->get('slot_management')->row_array();
-			if($get_day['week_days']==date('l')){
-				$app_date=date('d/m/Y');       
-			}else{
-				$app_date=date('Y/m/d', strtotime($get_day['week_days']));      
-			}  
-			$formdata=array('week_days'=>$get_day['week_days'],'appointment_date'=>$app_date,'user_id'=>$uid,'speciality'=>$speciality,'doctor_id'=>$doctor_id,'slot_id'=>$slot_id,'patient_id'=>$patient_id,'patient_name'=>$patient_name,'created_at'=>$created_at);     
-			$model_res = $this->Mastermodel->master_insert('tbl_book_appointment',$formdata);         
-			if($model_res > 0) {             
-				redirect(base_url('eclinic/appointments'));
-			}else {
-				redirect(base_url('eclinic/book-new-appointment'));           
-			}
+					extract($_POST);
+					$created_at=date('m/d/Y');      
+					$get_day= $this->db->where('id',$slot_id)->get('slot_management')->row_array();
+					if($get_day['week_days']==date('l')){
+						$app_date=date('d/m/Y');       
+					}else{
+						$app_date=date('Y/m/d', strtotime($get_day['week_days']));      
+					}  
+					$formdata=array('week_days'=>$get_day['week_days'],'appointment_date'=>$app_date,'user_id'=>$uid,'speciality'=>$speciality,'doctor_id'=>$doctor_id,'slot_id'=>$slot_id,'patient_id'=>$patient_id,'patient_name'=>$patient_name,'created_at'=>$created_at);     
+					$model_res = $this->Mastermodel->master_insert('tbl_book_appointment',$formdata);         
+					if($model_res > 0) {             
+						redirect(base_url('eclinic/appointments'));
+					}else {
+						redirect(base_url('eclinic/book-new-appointment'));           
+					}
 
 		}
   
